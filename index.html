@@ -18,23 +18,24 @@
 <body>
 
     <div class="container" style='margin-top: 20px;'>
-        <label for='topics'>Topics: </label>
-        <select name="topics" id="topics">
+        <label for='topics'><h3>Please select a topic: </h3></label>
+        <select class='form-control' name="topics" id="topics">
             <option value="" selected></option>
             <option value="0">Animals</option>
             <option value="1">Cars</option>
             <option value="2">Sports</option>
         </select>
+        <hr>
 
         <p id="error"></p>
-        <label for='limit'>Limit: </label>
+        <label for='limit'>How many GIFs do you want: </label>
         <input class='form-control query-input' id='limit' placeholder='Limit' type='number' value='10'><br />
 
         <!-- append the buttons here -->
         <div id='buttons'></div>
 
         <!-- add tje gifs here -->
-        <div id="gifs"></div>
+        <div id='gif-row' class='row'></div>
 
         <!-- <button class='btn btn-info gif-btn' id='dogs'>Dogs</button>
         <button class='btn btn-info gif-btn' id='cats'>Cats</button>

@@ -31,20 +31,30 @@ let renderGifs = function(arr) {
     // create a GIF card for each returned GIF
     for (let i = 0; i < arr.length; i++) {
         let div = $('<div>')
-            .addClass('gif-card');
+            .addClass('gif-card col-md-6 col-xs-12')
+            // .attr('style', 'border: 1px solid red;')
         
-        let p = $('<p>')
-            .text('Rating: ' + arr[i].rating.toUpperCase());
 
+        let infoDiv = $('<div>')
+            .text('Rating: ' + arr[i].rating.toUpperCase())
+            .attr('style', 'width: 40%;')
+
+        // let posterDiv = $('<div>');
         let poster = $('<img>')
             .addClass('gif-image')
-            .attr('data-still', arr[i].images.fixed_height_still.url)
-            .attr('data-active', arr[i].images.fixed_height.url)
+            // .attr('data-still', arr[i].images.fixed_height_still.url)
+            .attr('data-still', arr[i].images.fixed_width.url)
+            // .attr('data-active', arr[i].images.fixed_height.url)
+            .attr('data-active', arr[i].images.fixed_width.url)
             .attr('data-mode', 'active')
-            .attr('src', arr[i].images.fixed_height.url);
+            // .attr('src', arr[i].images.fixed_height.url)
+            .attr('src', arr[i].images.fixed_width.url)
+            .attr('style', 'max-width: 60%;')
+            .attr('style', 'float:right;');
 
-        div.append(p).append(poster);
-        $('#gifs').append(div);
+        // p.append(infoDiv);
+        div.append(infoDiv).append(poster);
+        $('#gif-row').append(div);
     }
 }
 
