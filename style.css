@@ -1,3 +1,9 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .query-input {
     /* width: 400px; */
 }
@@ -12,4 +18,14 @@
 
 .gif-card {
     border: 2px solid rgba(50, 50, 50, 0.4);
+    padding: 15px;
+    /* margin: 10px; */
+    border-radius: 10px;
+}
+
+.gif-image {
+    width: 100%;
+    height: auto;
+    
+    float: right;
 }

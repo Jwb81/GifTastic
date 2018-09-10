@@ -31,29 +31,40 @@ let renderGifs = function(arr) {
     // create a GIF card for each returned GIF
     for (let i = 0; i < arr.length; i++) {
         let div = $('<div>')
-            .addClass('gif-card col-md-6 col-xs-12')
+            .addClass('gif-card col-sm-6 col-xs-12')
             // .attr('style', 'border: 1px solid red;')
-        
 
         let infoDiv = $('<div>')
-            .text('Rating: ' + arr[i].rating.toUpperCase())
-            .attr('style', 'width: 40%;')
+            .attr('style', 'width: 50%;float:left;')
+            .html(
+                '<b>Title:</b> ' + arr[i].title + 
+                '<br /><b>Rating:</b> ' + arr[i].rating.toUpperCase() +
+                '<br /><a href="' + arr[i].source + '">Go to the source</a>'
+
+            )
+            // .attr('style', 'width: 40%;')
+
+        let imageDiv = $('<div>')
+            .attr('style', 'width: 50%;float:left;')
 
         // let posterDiv = $('<div>');
         let poster = $('<img>')
             .addClass('gif-image')
-            // .attr('data-still', arr[i].images.fixed_height_still.url)
-            .attr('data-still', arr[i].images.fixed_width.url)
-            // .attr('data-active', arr[i].images.fixed_height.url)
-            .attr('data-active', arr[i].images.fixed_width.url)
-            .attr('data-mode', 'active')
-            // .attr('src', arr[i].images.fixed_height.url)
-            .attr('src', arr[i].images.fixed_width.url)
-            .attr('style', 'max-width: 60%;')
-            .attr('style', 'float:right;');
+            .attr('data-still', arr[i].images.fixed_height_still.url)
+            // .attr('data-still', arr[i].images.fixed_width.url)
+            .attr('data-active', arr[i].images.fixed_height.url)
+            // .attr('data-active', arr[i].images.fixed_width.url)
+            .attr('data-mode', 'still')
+            .attr('src', arr[i].images.fixed_height_still.url)
+            // .attr('src', arr[i].images.fixed_width.url)
+            // .attr('style', 'border: 3px solid red;')
+        
 
-        // p.append(infoDiv);
-        div.append(infoDiv).append(poster);
+        // infoDiv.append(poster);
+        imageDiv.append(poster);
+        div.append(infoDiv);
+        div.append(imageDiv);
+        // div.append(infoDiv).append(poster);
         $('#gif-row').append(div);
     }
 }
@@ -107,7 +118,7 @@ $('#buttons').on('click', '.gif-btn', function () {
 
 
 // toggle image between still and active when an image is clicked
-$('#gifs').on('click', '.gif-image', function() {
+$('#gif-row').on('click', '.gif-image', function() {
     let mode = $(this).attr('data-mode');
 
     if (mode == 'active') {
