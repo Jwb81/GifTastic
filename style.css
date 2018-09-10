@@ -1,0 +1,7 @@
+.query-input {
+    /* width: 400px; */
+}
+
+.input-error {
+    border: 2px solid rgba(255, 0, 0, 0.5);
+}
