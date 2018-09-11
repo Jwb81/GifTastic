@@ -9,7 +9,7 @@ let topics = {
         "dogs", "cats", "birds"
     ],
     cars: [
-        "lamborghini", "mustand", "porsche"
+        "lamborghini", "mustang", "porsche"
     ], 
     sports: [
         "soccer", "football", "basketball"
@@ -22,7 +22,7 @@ let topics = {
 
 */
 
-// render buttons
+// render buttons from given array
 let renderButtons = function (array) {
 
     // clear buttons from previous selection
@@ -40,6 +40,7 @@ let renderButtons = function (array) {
     })
 }
 
+// render GIFs from ajax response
 let renderGifs = function (arr) {
     // check if the user wants the previous GIFs cleared
     if ($('#clear-gifs').prop('checked'))
@@ -152,6 +153,11 @@ $('#buttons').on('click', '.gif-btn', function () {
     // get value for the limit
     let limit = $('#limit').val();
 
+    if (limit < 1) {
+        $('#limit').addClass('input-error');
+        return;
+    }
+
     // get gif rating
     // let ratingsArray = ['y', 'g', 'pg', 'pg-13', 'r'];
     // let rating = $('#rating').val();
@@ -220,9 +226,15 @@ $('#new-topic-submit').on('click', function(evt) {
     evt.preventDefault();
 
     $('#topics').removeClass('input-error');
+    $('#new-topic').removeClass('input-error');
 
     if ($('#topics').val() == 0) {
         $('#topics').addClass('input-error');
+        return;
+    }
+
+    if (!$('#new-topic').val()) {
+        $('#new-topic').addClass('input-error');
         return;
     }
 
