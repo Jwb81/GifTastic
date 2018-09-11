@@ -5,11 +5,11 @@ html, body {
 }
 
 .form-group {
-    width: 33.33%;
+    /* width: 33%; */
 }
 
 #topics, #new-topic, #new-topic-submit {
-    width: 90%;
+    /* width: 90%; */
     margin: 0 auto;
 }
 
