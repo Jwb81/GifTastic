@@ -4,8 +4,13 @@ html, body {
     box-sizing: border-box;
 }
 
-.query-input {
-    /* width: 400px; */
+.form-group {
+    width: 33.33%;
+}
+
+#topics, #new-topic, #new-topic-submit {
+    width: 90%;
+    margin: 0 auto;
 }
 
 .input-error {
@@ -14,6 +19,7 @@ html, body {
 
 .gif-btn {
     margin: 5px;
+    margin-bottom: 10px;
 }
 
 .gif-card {
@@ -28,4 +34,8 @@ html, body {
     height: auto;
     
     float: right;
+}
+
+.footer {
+    text-align: center;
 }
