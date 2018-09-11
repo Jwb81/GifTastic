@@ -239,8 +239,14 @@ $('#new-topic-submit').on('click', function(evt) {
     }
 
     let value = $('#topics').val();
-    topics[value].push($('#new-topic').val());
-    renderButtons(topics[value]);
+
+    if (topics[value].indexOf($('#new-topic').val()) == -1) {
+        topics[value].push($('#new-topic').val());
+        renderButtons(topics[value]);
+    }
+    else {
+        alert('That value is already in a button!');
+    }
 
 
 })
